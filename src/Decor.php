@@ -5,6 +5,10 @@ namespace Fine\Decor;
 class Decor implements DecorInterface
 {
 
+    const PLACEMENT_PREPEND = 'PLACEMENT_PREPEND';
+    const PLACEMENT_APPEND  = 'PLACEMENT_APPEND';
+    const PLACEMENT_EMBRACE = 'PLACEMENT_EMBRACE';
+
     protected $_subject;
     protected $_decor;
     protected $_decor2;

@@ -83,13 +83,43 @@ class HtmlTag extends Decor
         return $this->_short;
     }
 
-    public function render()
+    public function addClass($class)
     {
-        $this->_prepare();
-        return $this->_render();
+        // @TODO
     }
 
-    protected function _prepare()
+    public function addClasses(array $classes)
+    {
+        // @TODO
+    }
+
+    public function setStyle($attr, $val)
+    {
+        // @TODO
+    }
+
+    public function setStyles(array $styles)
+    {
+        // @TODO
+    }
+
+    public function removeStyle($attr)
+    {
+        // @TODO
+    }
+
+    public function setId($id)
+    {
+        $this->_id = $id;
+        return $this;
+    }
+
+    public function getId()
+    {
+        return $this->_id;
+    }
+
+    public function render()
     {
         $attr = "";
         if ($this->_attr) {
@@ -100,15 +130,14 @@ class HtmlTag extends Decor
 
         if ($this->_short === true) {
             $this->_decor  = "$this->_prepend<{$this->_tag}{$attr} />$this->_append";
-            $this->_decoration2 = "";
+            $this->_decor2 = "";
         }
         else {
-            $this->_decoration  = "$this->_prepend<{$this->_tag}{$attr}>$this->_innerPrepend";
-            $this->_decoration2 = "$this->_innerAppend</{$this->_tag}>$this->_append";
+            $this->_decor  = "$this->_prepend<{$this->_tag}{$attr}>$this->_innerPrepend";
+            $this->_decor2 = "$this->_innerAppend</{$this->_tag}>$this->_append";
         }
 
+        return $this->_render();
     }
-
-
 
 }
